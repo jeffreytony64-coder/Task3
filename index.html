@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TaskFlow - a simple, smart daily task planner.">
+  <title>TaskFlow | Smart Daily Planner</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="TaskFlow home">
+        <span class="brand-icon">✓</span>
+        TaskFlow<span class="brand-dot">.</span>
+      </a>
+      <span class="saved-label"><span class="status-dot"></span> Saved locally</span>
+    </header>
+
+    <main>
+      <section class="welcome">
+        <p class="eyebrow">YOUR PERSONAL WORKSPACE</p>
+        <h1>Make today <span>count.</span></h1>
+        <p class="subtitle">Small steps. Big progress. One task at a time.</p>
+      </section>
+
+      <section class="stats" aria-label="Task statistics">
+        <article class="stat-card">
+          <span class="stat-icon">▤</span>
+          <p>Total tasks</p>
+          <strong id="total-count">0</strong>
+        </article>
+        <article class="stat-card">
+          <span class="stat-icon active-icon">◷</span>
+          <p>In progress</p>
+          <strong id="active-count">0</strong>
+        </article>
+        <article class="stat-card">
+          <span class="stat-icon done-icon">✓</span>
+          <p>Completed</p>
+          <strong id="completed-count">0</strong>
+        </article>
+      </section>
+
+      <section class="progress-section" aria-label="Daily progress">
+        <div class="progress-heading">
+          <span>Daily progress</span>
+          <strong id="progress-label">0%</strong>
+        </div>
+        <div
+          class="progress-track"
+          id="progress-track"
+          role="progressbar"
+          aria-label="Tasks completed"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+      </section>
+
+      <section class="task-panel" aria-labelledby="task-heading">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">PLAN YOUR DAY</p>
+            <h2 id="task-heading">My tasks</h2>
+          </div>
+          <span class="task-badge" id="visible-count">0 tasks</span>
+        </div>
+
+        <form id="task-form">
+          <label for="task-input">What do you want to accomplish?</label>
+          <div class="input-row">
+            <input
+              id="task-input"
+              type="text"
+              placeholder="e.g. Complete my Java assignment"
+              maxlength="120"
+              required>
+            <select id="task-priority" aria-label="Task priority">
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+              <option value="low">Low</option>
+            </select>
+            <button class="add-button" id="submit-button" type="submit">
+              + Add task
+            </button>
+          </div>
+          <p class="form-hint" id="form-hint" aria-live="polite">
+            Choose a priority and add your first task.
+          </p>
+        </form>
+
+        <div class="task-toolbar">
+          <div class="filters" role="group" aria-label="Filter tasks">
+            <button class="filter active-filter" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="filter" type="button" data-filter="active" aria-pressed="false">Active</button>
+            <button class="filter" type="button" data-filter="completed" aria-pressed="false">Completed</button>
+          </div>
+          <button id="clear-completed" class="clear-button" type="button">
+            Clear completed
+          </button>
+        </div>
+
+        <ul id="task-list" class="task-list" aria-label="Your tasks"></ul>
+
+        <div id="empty-state" class="empty-state">
+          <div class="empty-icon">✦</div>
+          <h3>Your next win starts here</h3>
+          <p>Add a task above and make progress today.</p>
+        </div>
+
+        <p id="list-status" class="sr-only" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <footer>
+      <p>TaskFlow <span>·</span> Your goals, your pace.</p>
+      <p>Built with HTML, CSS & JavaScript</p>
+    </footer>
+  </div>
+</body>
+</html>
